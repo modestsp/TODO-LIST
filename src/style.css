@@ -110,6 +110,41 @@ aside ul button:hover {
     height: 90%;
 }
 
+.card-todo {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid black;
+    align-items: center;
+}
+
+.card-todo>h3 {
+    font-size: 1.5rem;
+    text-decoration: underline;
+    padding: 1rem;
+}
+
+.card-todo>p {
+    border: 1px solid black;
+    padding: 0.5rem;
+    margin-bottom: auto;
+}
+
+.card-todo>span {
+    font-weight: 400;
+}
+
+.priority_1 {
+    color: red;
+}
+
+.priority_2 {
+    color: orange;
+}
+
+.priority_3 {
+    color: green;
+}
+
 /* new Task */
 .close-btn {
     position: absolute;
@@ -117,6 +152,8 @@ aside ul button:hover {
     right: 5%;
     cursor: pointer;
     font-weight: 500;
+    font-size: 1.2rem;
+    color: rgba(255, 0, 0, 0.801);
 }
 
 .close-btn:hover {
