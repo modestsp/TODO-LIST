@@ -5,7 +5,6 @@ import formTodo from './formTodo';
 import displayToDos from './displayToDos';
 import { v4 } from "uuid"
 import display from './display'
-import butons from './remove';
 
 console.log(v4());
 
@@ -54,5 +53,3 @@ document.addEventListener('DOMContentLoaded', () => {
     displayToDos(toDos);
     // display(toDos)
 })
-
-export default toDos
