@@ -3,21 +3,20 @@ import createTodo from './createTodo';
 import displayNewTodo from './displayNewTodo';
 import formTodo from './formTodo';
 import displayToDos from './displayToDos';
+import { v4 } from "uuid"
+import display from './display'
+import butons from './remove';
 
-const toDos = [{
-    title: "title",
-    description: "description",
-    dueDate: "20-12-2022",
-    priority: "2"
-}];
+console.log(v4());
+
+let toDos = [];
 const content = document.querySelector('.content')
-displayToDos(toDos);
 
 
 content.insertAdjacentElement('afterend', formTodo())
-const newTask_btn = document.querySelector('#add-task')
+const addNewTask_btn = document.querySelector('#add-task')
 
-newTask_btn.addEventListener('click', () => {
+addNewTask_btn.addEventListener('click', () => {
 
     document.querySelector('form').classList.toggle('active')
     document.querySelector('.content').classList.toggle('blur')
@@ -39,8 +38,9 @@ addTaskBtn.addEventListener('click', (e) => {
         document.querySelector("#date").value,
         document.querySelector('input[name="priority"]:checked').value
     );
-    console.log(newTodo.priority)
+    console.log(toDos)
     toDos.push(newTodo);
+    localStorage.setItem('tasks', JSON.stringify(toDos));
     displayNewTodo(newTodo);
     console.log(toDos)
     document.querySelector('form').classList.toggle('active')
@@ -48,3 +48,11 @@ addTaskBtn.addEventListener('click', (e) => {
     return toDos;
 })
 
+document.addEventListener('DOMContentLoaded', () => {
+
+    toDos = JSON.parse(localStorage.getItem('tasks') || '[]');
+    displayToDos(toDos);
+    // display(toDos)
+})
+
+export default toDos
